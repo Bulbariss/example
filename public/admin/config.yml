@@ -1,0 +1,56 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: public/images
+public_folder: images
+publish_mode: editorial_workflow
+locale: en
+show_preview_links: false
+collections:
+  - name: seo
+    label: Website Configuration
+    delete: false
+    editor:
+      preview: false
+    files:
+      - label: Configuration
+        name: siteSeo
+        file: cms/config/seo.md
+        fields:
+          - label: Language of website
+            name: lang
+            widget: string
+          - label: URL of website
+            name: URL
+            widget: string
+          - label: Website title
+            name: siteTitle
+            widget: string
+          - label: Website description
+            name: siteDescription
+            widget: text
+          - label: Website cover
+            name: socialCover
+            widget: image
+          - label: Keywords
+            name: keywords
+            widget: list
+            summary: '{{fields.keyword.keyword}}'
+            field:
+              label: Keyword
+              name: keyword
+              widget: string
+  - label: Pages
+    name: pages
+    delete: false
+    editor:
+      preview: false
+    files:
+      - label: Homepage
+        name: homepage
+        file: cms/pages/homepage.md
+        fields:
+          - label: Title
+            name: title
+            widget: string
+          

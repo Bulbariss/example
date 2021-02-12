@@ -1,0 +1,21 @@
+// .babelrc
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "styled-jsx": {
+          "plugins": [
+            [
+              "styled-jsx-plugin-postcss",
+              {
+                "path": "./postcss.config.js",
+                "compileEnv": "worker"
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  ]
+}
