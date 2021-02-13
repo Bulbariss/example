@@ -4,6 +4,23 @@
 /* purgecss end ignore */
 @tailwind utilities;
 
+/* Reusable Styling */
+.design-container {
+  padding: 24vh 8vh;
+}
+
+@media (max-width: 640px) {
+  .design-container {
+    padding: 10vh 8vh;
+  }
+}
+@media (max-width: 768px) {
+  .design-container {
+    padding: 16vw 8vh;
+  }
+}
+/* Reusable Styling */
+
 /* Font Declaration */
 
 @font-face {

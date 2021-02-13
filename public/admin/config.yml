@@ -40,6 +40,25 @@ collections:
               label: Keyword
               name: keyword
               widget: string
+  - label: Header
+    name: header
+    delete: false
+    editor:
+      preview: false
+    files:
+      - label: Header
+        name: header
+        file: cms/config/header.md
+        fields:
+          - label: Logo
+            name: logo
+            widget: string
+          - label: Content Panel
+            name: contentPanel
+            widget: string
+          - label: Blog
+            name: blog
+            widget: string              
   - label: Pages
     name: pages
     delete: false
@@ -52,5 +71,11 @@ collections:
         fields:
           - label: Title
             name: title
+            widget: string
+          - label: Hero Image
+            name: heroImage
+            widget: image
+          - label: Hero Text
+            name: heroText
             widget: string
           
