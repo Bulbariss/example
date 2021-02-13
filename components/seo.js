@@ -103,11 +103,10 @@ export default function SEO({ seo, title }) {
           href="/favicon/favicon-192x192.png"
         />
         <link
-          rel="shortcut icon"
+          rel="icon"
           type="image/x-icon"
-          href="/favicon/favicon.ico"
+          href="/favicon/favicon-144x144.png"
         />
-        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta
           name="msapplication-TileImage"

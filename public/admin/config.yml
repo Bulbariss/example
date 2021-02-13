@@ -1,10 +1,10 @@
 backend:
   name: github
-  repo: example
+  repo: Bulbariss/example
   branch: main
 media_folder: public/images
 public_folder: images
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 locale: en
 show_preview_links: false
 collections:
@@ -78,5 +78,8 @@ collections:
             widget: image
           - label: Hero Text
             name: heroText
+            widget: string
+          - label: Text One
+            name: textOne
             widget: string
           
