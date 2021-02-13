@@ -11,14 +11,14 @@ export default function BackgroundImage({
 
   function imageLoaded() {
     let imagePlaceholder = imageRef.current.getElementsByClassName(
-      "bg-image"
+      "placeholder-container"
     )[0];
     imagePlaceholder.classList.add("loaded");
   }
   return (
     <>
       <div ref={imageRef} className={`relative w-screen ${className}`}>
-        <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-0 left-0 w-full h-full placeholder-container">
           <Image
             src={`/_next/image?url=/${image}&w=40&q=75`}
             className="z-10 w-full h-full delay-200 bg-image"
@@ -26,6 +26,7 @@ export default function BackgroundImage({
             objectFit="cover"
             priority="true"
           />
+          <div className="absolute z-20 w-full h-full delay-200 blur" />
         </div>
         <Image
           onLoad={() => imageLoaded()}

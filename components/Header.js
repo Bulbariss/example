@@ -1,12 +1,12 @@
 import Link from "next/link";
 export default function Header({ header }) {
   return (
-    <div className="fixed top-0 left-0 w-full">
-      <div className="flex justify-between mx-auto max-w-7xl">
-        <Link href="/" className="font-bold">
-          {header.logo}
+    <div className="absolute top-0 left-0 z-30 w-full">
+      <div className="flex justify-between px-4 pt-4 mx-auto text-white max-w-7xl">
+        <Link href="/">
+          <a className="text-xl font-bold">{header.logo}</a>
         </Link>
-        <div className="flex">
+        <div className="flex space-x-6">
           <Link href="/" className="font-bold">
             {header.blog}
           </Link>
