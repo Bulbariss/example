@@ -55,6 +55,7 @@ export default function Index({ data, seo, header }) {
       />
       <Feature
         last
+        reverse
         heading={data.headingFive}
         text={data.textFive}
         image={data.imageFour}
