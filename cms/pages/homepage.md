@@ -2,7 +2,7 @@
 title: Home
 heroImage: images/hero-image.jpg
 heroText: Welcome to Example&nbsp;Site
-heroTextTwo: This is a sample site made for demonstration of content management system
+heroTextTwo: This website is made for demonstration of content management system
 buttonText: Edit this site
 headingOne: Effortless management of content
 textOne: Updating websites content can be a massive headache, but it doesn’t
@@ -19,5 +19,5 @@ textFour: Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio esse dic
 imageFour: images/stoic-edison-e4216a.netlify.app_admin_-1-.png
 headingFive: Create posts
 textFive: Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio esse dicta nisi!
-headingSix: All of this and more is available right now
+headingSix: All of this and more is available&nbsp;right&nbsp;now
 ---
