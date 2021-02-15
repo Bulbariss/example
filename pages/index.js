@@ -14,7 +14,7 @@ export default function Index({ data, seo, header }) {
   return (
     <Layout title={data.title} seo={seo} header={header}>
       <BackgroundImage
-        containerClassName="flex flex-col items-center justify-center min-h-screen"
+        containerClassName="flex flex-col items-center justify-center min-h-screen px-4"
         image={data.heroImage}
       >
         <h1
@@ -23,7 +23,7 @@ export default function Index({ data, seo, header }) {
         ></h1>
         <h2
           className="max-w-md pt-2 mx-auto text-xl text-center text-white"
-          dangerouslySetInnerHTML={{ __html: data.textOne }}
+          dangerouslySetInnerHTML={{ __html: data.heroTextTwo }}
         ></h2>
         {button}
       </BackgroundImage>
@@ -48,7 +48,6 @@ export default function Index({ data, seo, header }) {
         reverse
       />
       <Feature
-        last
         heading={data.headingFour}
         text={data.textFour}
         image={data.imageThree}
@@ -62,9 +61,10 @@ export default function Index({ data, seo, header }) {
         className="pb-64-percent"
       />
       <div className="flex flex-col justify-center p-design">
-        <p className="text-lg font-bold text-center md:text-2xl text-theme">
-          {data.headingSix}
-        </p>
+        <p
+          className="text-xl font-bold text-center md:text-3xl text-theme"
+          dangerouslySetInnerHTML={{ __html: data.headingSix }}
+        ></p>
         {button}
       </div>
     </Layout>

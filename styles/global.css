@@ -12,7 +12,7 @@
   padding-top: 24vh;
 }
 .pb-design {
-  padding-bottom: 24vh;
+  padding-bottom: 24vh !important;
 }
 .pt-design-sm {
   padding-top: 12vh;
@@ -43,7 +43,7 @@
     padding-top: 16vh;
   }
   .pb-design {
-    padding-bottom: 16vh;
+    padding-bottom: 16vh !important;
   }
   .pt-design-sm {
     padding-top: 8vh;
@@ -63,7 +63,7 @@
     padding-top: 5vh;
   }
   .pb-design {
-    padding-bottom: 5vh;
+    padding-bottom: 5vh !important;
   }
   .pt-design-sm {
     padding-top: 5vh;

@@ -7,6 +7,7 @@ export default function Feature({
   text,
   className,
   first,
+  heading,
   last,
   reverse,
 }) {
@@ -25,12 +26,9 @@ export default function Feature({
           className={`${reverse && "md:text-right"} md:px-6`}
         >
           <p className="pb-2 text-lg font-bold leading-tight md:text-2xl text-theme">
-            {text}
+            {heading}
           </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio esse
-            dicta nisi!
-          </p>
+          <p>{text}</p>
         </AnimationBox>
       </div>
     </div>

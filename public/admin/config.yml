@@ -78,56 +78,56 @@ collections:
             widget: image
           - label: Hero Text
             name: heroText
-            widget: markdown
+            widget: text
           - label: Hero Text Two
             name: heroTextTwo
-            widget: markdown
+            widget: text
           - label: Button Text 
             name: buttonText
             widget: string
           - label: Heading One
             name: headingOne
-            widget: markdown
+            widget: text
           - label: Text One
             name: textOne
-            widget: markdown
+            widget: text
           - label: Image One
             name: imageOne
             widget: image
           - label: Heading Two
             name: headingTwo
-            widget: markdown
+            widget: text
           - label: Text Two
             name: textTwo
-            widget: markdown
+            widget: text
           - label: Image Two
             name: imageTwo
             widget: image
           - label: Heading Three
             name: headingThree
-            widget: markdown
+            widget: text
           - label: Text Three
             name: textThree
-            widget: markdown
+            widget: text
           - label: Image Three
             name: imageThree
             widget: image
           - label: Heading Four
             name: headingFour
-            widget: markdown
+            widget: text
           - label: Text Four
             name: textFour
-            widget: markdown
+            widget: text
           - label: Image Four
             name: imageFour
             widget: image
           - label: Heading Five
             name: headingFive
-            widget: markdown
+            widget: text
           - label: Text Five
             name: textFive
-            widget: markdown
+            widget: text
           - label: Heading Six
             name: headingSix
-            widget: markdown
+            widget: text
           
