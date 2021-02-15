@@ -91,6 +91,12 @@ textarea::-webkit-input-placeholder {
 .text-hero {
   font-size: clamp(4rem, 6vw, 9rem);
 }
+.text-theme {
+  color: #487876;
+}
+.bg-theme {
+  background-color: #c7e2e1;
+}
 .blur {
   backdrop-filter: blur(24px); /* apply the blur */
   pointer-events: none; /* make the pseudo class click-through */

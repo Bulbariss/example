@@ -78,8 +78,11 @@ collections:
             widget: image
           - label: Hero Text
             name: heroText
-            widget: string
+            widget: markdown
           - label: Text One
             name: textOne
-            widget: string
+            widget: markdown
+          - label: Text Two
+            name: textTwo
+            widget: markdown
           

@@ -9,14 +9,20 @@ export default function Index({ data, seo, header }) {
         className="flex items-center justify-center min-h-screen"
         image={data.heroImage}
       >
-        <h1 className="font-bold text-center text-white H1 text-hero">
-          {data.heroText}
-        </h1>
+        <h1
+          className="font-bold leading-tight text-center text-white H1 text-hero"
+          dangerouslySetInnerHTML={{ __html: data.heroText }}
+        ></h1>
       </BackgroundImage>
-      <div className="design-container">
-        <h2 className="font-bold">
+      <div className="design-container bg-theme">
+        <h2 className="text-2xl font-bold leading-tight text-center text-theme">
           <TextPopUpStaggered text={data.textOne} />
         </h2>
+      </div>
+      <div className="design-container">
+        <h3 className="text-2xl font-bold leading-tight text-center text-theme">
+          {data.textTwo}
+        </h3>
       </div>
     </Layout>
   );

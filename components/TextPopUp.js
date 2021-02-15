@@ -2,7 +2,11 @@ import { motion } from "framer-motion";
 import { Fragment } from "react";
 
 const TextPopUpStaggered = ({ text }) => {
-  let textArray = text.split(/\s/gm).filter((i) => i !== "");
+  let textArray = text
+    .split(
+      /[\r\t\f\v \u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]/gm
+    )
+    .filter((i) => i !== "");
   const transition = {
     duration: 0.8,
     ease: [0.6, 0.01, -0.05, 0.9],
@@ -40,11 +44,15 @@ const TextPopUpStaggered = ({ text }) => {
       {textArray.map((char, i) => (
         <Fragment key={i}>
           <span className="relative inline-block overflow-hidden">
-            <motion.span className="relative inline-block" variants={letter}>
-              {char}
+            <motion.span
+              className="relative inline-block whitespace-pre-wrap"
+              variants={letter}
+            >
+              {char.replace("\n", "")}
+              {i !== textArray.length - 1 && " "}
             </motion.span>
           </span>
-          {i !== textArray.length && <span> </span>}
+          {char.includes("\n") && <br />}
         </Fragment>
       ))}
     </motion.span>
