@@ -5,6 +5,7 @@ export default function BackgroundImage({
   children,
   alt,
   className,
+  containerClassName,
   quality,
 }) {
   let imageRef = useRef();
@@ -17,7 +18,7 @@ export default function BackgroundImage({
   }
   return (
     <>
-      <div ref={imageRef} className={`relative w-screen ${className}`}>
+      <div ref={imageRef} className={`relative ${className}`}>
         <div className="absolute top-0 left-0 w-full h-full placeholder-container">
           <Image
             src={`/_next/image?url=/${image}&w=40&q=75`}
@@ -37,7 +38,7 @@ export default function BackgroundImage({
           alt={alt ? alt : "test"}
           className="w-full h-full onload"
         />
-        <div className="relative z-20">{children}</div>
+        <div className={`relative z-20 ${containerClassName}`}>{children}</div>
       </div>
     </>
   );

@@ -36,8 +36,8 @@ textarea::-webkit-input-placeholder {
 } */
 
 ::selection {
-  background: #ccff00;
-  color: #000;
+  background: #355957;
+  color: #fff;
   text-shadow: none;
 }
 
@@ -89,13 +89,19 @@ textarea::-webkit-input-placeholder {
   z-index: -1;
 }
 .text-hero {
-  font-size: clamp(4rem, 6vw, 9rem);
+  font-size: clamp(3rem, 6vw, 9rem);
 }
 .text-theme {
   color: #487876;
 }
 .bg-theme {
   background-color: #c7e2e1;
+}
+.bg-theme-2 {
+  background-color: #355957;
+}
+.pb-64-percent {
+  padding-bottom: 64%;
 }
 .blur {
   backdrop-filter: blur(24px); /* apply the blur */
