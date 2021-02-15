@@ -24,6 +24,7 @@ export default function BackgroundImage({
             src={`/_next/image?url=/${image}&w=40&q=75`}
             className="z-10 w-full h-full delay-200 bg-image"
             layout="fill"
+            unoptimized
             objectFit="cover"
             priority="true"
           />

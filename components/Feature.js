@@ -1,6 +1,6 @@
-import BackgroundImage from "../components/BackgroundImage";
-import AnimationBox from "../components/animation/AnimationBox";
 import { FadeUp } from "../components/animation/animations";
+import AnimationBox from "../components/animation/AnimationBox";
+import BackgroundImage from "../components/BackgroundImage";
 
 export default function Feature({
   image,

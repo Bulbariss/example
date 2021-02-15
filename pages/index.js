@@ -1,7 +1,7 @@
-import Layout from "../components/layout";
-import BackgroundImage from "../components/BackgroundImage";
-import Feature from "../components/Feature";
 import Link from "next/link";
+import Layout from "../components/layout";
+import Feature from "../components/Feature";
+import BackgroundImage from "../components/BackgroundImage";
 
 export default function Index({ data, seo, header }) {
   const button = (
