@@ -25,10 +25,10 @@ export default function Feature({
           variants={FadeUp}
           className={`${reverse && "md:text-right"} md:px-6`}
         >
-          <p className="pb-2 text-lg font-bold leading-tight md:text-2xl text-theme">
+          <p className="pb-2 text-xl font-bold leading-tight md:text-3xl text-theme">
             {heading}
           </p>
-          <p>{text}</p>
+          <p className="text-xl text-theme">{text}</p>
         </AnimationBox>
       </div>
     </div>

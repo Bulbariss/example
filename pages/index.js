@@ -28,7 +28,7 @@ export default function Index({ data, seo, header }) {
         {button}
       </BackgroundImage>
       <div className="text-center p-design text-theme">
-        <h3 className="pb-2 text-lg font-bold leading-tight md:text-3xl">
+        <h3 className="pb-2 text-xl font-bold leading-tight md:text-3xl">
           {data.headingOne}
         </h3>
         <p className="max-w-md mx-auto md:text-xl">{data.textOne}</p>

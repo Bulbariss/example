@@ -10,10 +10,10 @@ export default function SEO({ seo, title }) {
     <>
       <Head>
         <title>{`${title ? title + " | " : ""}${seo.siteTitle}`}</title>
-        <meta name="description" content={seo.description} />
+        <meta name="description" content={seo.siteDescription} />
 
         {/* Facebook / OpenGraph */}
-        <meta property="og:description" content={seo.description} />
+        <meta property="og:description" content={seo.siteDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={seo.siteTitle} />
         <meta property="og:url" content={seo.URL} />
@@ -25,7 +25,7 @@ export default function SEO({ seo, title }) {
 
         {/* Twitter */}
         <meta property="twitter:title" content={seo.title} />
-        <meta property="twitter:description" content={seo.description} />
+        <meta property="twitter:description" content={seo.siteDescription} />
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:image" content={seo.socialCover} />
 

@@ -25,6 +25,7 @@ export default function BackgroundImage({
             className="z-10 w-full h-full delay-200 bg-image"
             layout="fill"
             unoptimized
+            alt="cover placeholder"
             objectFit="cover"
             priority="true"
           />
@@ -36,7 +37,7 @@ export default function BackgroundImage({
           quality={quality || 75}
           objectFit="cover"
           src={"/" + image}
-          alt={alt ? alt : "test"}
+          alt={alt ? alt : "cover"}
           className="w-full h-full onload"
         />
         <div className={`relative z-20 ${containerClassName}`}>{children}</div>
