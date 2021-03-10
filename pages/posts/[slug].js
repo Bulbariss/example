@@ -6,15 +6,17 @@ import PostHeader from "../../components/blog/post-header";
 import Layout from "../../components/blog/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/blog/api";
 import PostTitle from "../../components/blog/post-title";
+import OtherPosts from "../../components/blog/other-posts";
 import Head from "next/head";
 import { CMS_NAME } from "../../lib/blog/constants";
 import markdownToHtml from "../../lib/blog/markdownToHtml";
 
-export default function Post({ post, preview }) {
+export default function Post({ post, preview, previousPost, nextPost }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
   return (
     <Layout preview={preview}>
       <Container>
@@ -37,6 +39,7 @@ export default function Post({ post, preview }) {
               />
               <PostBody content={post.content} />
             </article>
+            <OtherPosts previousPost={previousPost} nextPost={nextPost} />
           </>
         )}
       </Container>
@@ -56,12 +59,21 @@ export async function getStaticProps({ params }) {
   ]);
   const content = await markdownToHtml(post.content || "");
 
+  const allPosts = getAllPosts(["title", "slug"]);
+  const slugs = allPosts.map((i) => i.slug);
+  const postIndex = slugs.indexOf(params.slug);
+
+  const previousPost = postIndex > 0 && allPosts[postIndex - 1];
+  const nextPost = postIndex < allPosts.length - 1 && allPosts[postIndex + 1];
+
   return {
     props: {
       post: {
         ...post,
         content,
       },
+      previousPost,
+      nextPost,
     },
   };
 }
