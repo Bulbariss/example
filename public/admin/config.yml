@@ -149,8 +149,8 @@ collections:
       - label: "Publish Date"
         name: "date"
         widget: "datetime"
-        format: "YYYY-MM-DD"
-        dateFormat: "YYYY-MM-DD"
+        format: "DD MM YYYY hh:mm:ss"
+        dateFormat: "DD MM YYYY hh:mm:ss"
         timeFormat: false
       - label: "Body"
         name: "body"
