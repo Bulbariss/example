@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRef } from "react";
+
 export default function BackgroundImage({
   image,
   children,
@@ -9,7 +10,6 @@ export default function BackgroundImage({
   quality,
 }) {
   let imageRef = useRef();
-
   function imageLoaded() {
     let imagePlaceholder = imageRef.current.getElementsByClassName(
       "placeholder-container"
@@ -21,6 +21,7 @@ export default function BackgroundImage({
       <div ref={imageRef} className={`relative ${className}`}>
         <div className="absolute top-0 left-0 w-full h-full placeholder-container">
           <Image
+            aria-hidden="true"
             src={`/_next/image?url=/${image}&w=40&q=75`}
             className="z-10 w-full h-full delay-200 bg-image"
             layout="fill"
