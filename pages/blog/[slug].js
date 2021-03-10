@@ -8,7 +8,14 @@ import PostTitle from "../../components/blog/post-title";
 import markdownToHtml from "../../lib/blog/markdownToHtml";
 import OtherPosts from "../../components/blog/other-posts";
 
-export default function Post({ post,  previousPost, nextPost, data, seo, header }) {
+export default function Post({
+  post,
+  previousPost,
+  nextPost,
+  data,
+  seo,
+  header,
+}) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
