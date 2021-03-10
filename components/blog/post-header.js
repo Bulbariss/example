@@ -1,26 +1,21 @@
-import Avatar from './avatar'
-import DateFormatter from './date-formatter'
-import CoverImage from './cover-image'
-import PostTitle from './post-title'
+import DateFormatter from "./date-formatter";
+import CoverImage from "./cover-image";
+import PostTitle from "./post-title";
 
-export default function PostHeader({ title, coverImage, date, author }) {
+export default function PostHeader({ title, coverImage, date }) {
   return (
-    <>
-      <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
-        <Avatar name={author.name} picture={author.picture} />
-      </div>
+    <div className="max-w-2xl px-4 pt-12 mx-auto md:px-0">
+      {/* <div className="hidden md:block md:mb-12"></div> */}
       <div className="mb-8 md:mb-16 sm:mx-0">
         <CoverImage title={title} src={coverImage} height={620} width={1240} />
       </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="block md:hidden mb-6">
-          <Avatar name={author.name} picture={author.picture} />
-        </div>
-        <div className="mb-6 text-lg">
+      <PostTitle>{title}</PostTitle>
+      <div>
+        <div className="block mb-6 md:hidden"></div>
+        <div className="mb-6 text-sm font-bold text-gray-600">
           <DateFormatter dateString={date} />
         </div>
       </div>
-    </>
-  )
+    </div>
+  );
 }

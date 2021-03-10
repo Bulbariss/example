@@ -1,14 +1,12 @@
-import Avatar from "./avatar";
 import DateFormatter from "./date-formatter";
-import CoverImage from "./cover-image";
 import Link from "next/link";
+import CoverImage from "./cover-image";
 
 export default function PostPreview({
   title,
   coverImage,
   date,
   excerpt,
-  author,
   slug,
 }) {
   return (
@@ -23,15 +21,14 @@ export default function PostPreview({
         />
       </div>
       <h3 className="mb-3 text-3xl leading-snug">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover:underline">{title}</a>
+        <Link as={`/blog/${slug}`} href="/blog/[slug]">
+          <a className="font-bold hover:underline">{title}</a>
         </Link>
       </h3>
-      <div className="mb-4 text-lg">
+      <div className="mb-4 text-sm font-bold text-gray-600">
         <DateFormatter dateString={date} />
       </div>
       <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
     </div>
   );
 }

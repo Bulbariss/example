@@ -1,31 +1,29 @@
-import Container from "../../../components/blog/container";
-import MoreStories from "../../../components/blog/more-stories";
+import Posts from "../../../components/blog/posts";
 import Intro from "../../../components/blog/intro";
-import Layout from "../../../components/blog/layout";
+import Layout from "../../../components/layout";
 import { getAllPosts } from "../../../lib/blog/api";
 import { POSTS_PER_PAGE } from "../../../lib/blog/constants";
 
-export default function Index({ allPosts, pagination, show }) {
+export default function Index({ allPosts, pagination, show, data, seo, header }) {
   return (
     <>
-      <Layout>
-        <Container>
-          <Intro />
-          {allPosts.length > 0 && (
-            <MoreStories pagination={pagination} posts={show} />
-          )}
-        </Container>
+      <Layout title={data.title} seo={seo} header={header}>
+        <Intro />
+        {allPosts.length > 0 && <Posts pagination={pagination} posts={show} />}
       </Layout>
     </>
   );
 }
 
 export async function getStaticProps({ params }) {
+  const pageContent = await import(`../../../cms/pages/homepage.md`);
+  const seo = await import(`../../../cms/config/seo.md`);
+  const header = await import(`../../../cms/config/header.md`);
+
   const allPosts = getAllPosts([
     "title",
     "date",
     "slug",
-    "author",
     "coverImage",
     "excerpt",
   ]);
@@ -40,7 +38,14 @@ export async function getStaticProps({ params }) {
     pages: Math.ceil(allPosts.length / POSTS_PER_PAGE),
   };
   return {
-    props: { pagination, allPosts, show },
+    props: {
+      pagination,
+      allPosts,
+      show,
+      data: pageContent.default.attributes,
+      seo: seo.default.attributes,
+      header: header.default.attributes,
+    },
   };
 }
 
@@ -49,7 +54,6 @@ export const getStaticPaths = async () => {
     "title",
     "date",
     "slug",
-    "author",
     "coverImage",
     "excerpt",
   ]);

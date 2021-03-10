@@ -4,12 +4,12 @@ import SmartOutline from "./utils/SmartOutline";
 import SEO from "../components/seo";
 import Header from "../components/Header";
 
-function Layout({ children, seo, title, header }) {
+function Layout({ children, seo, title, header, home }) {
   return (
     <>
       <SEO title={title} seo={seo} />
       <SmartOutline />
-      <Header header={header} />
+      <Header home={home} header={header} />
       <main>{children}</main>
     </>
   );

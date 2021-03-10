@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Pagination({ current, pages, link }) {
   const pagination = generatePagination(current, pages);
   return (
-    <ul>
+    <ul className="max-w-2xl px-4 pb-8 mx-auto md:px-0">
       {pagination.map((it, i) => (
         <li key={i}>
           {it.excerpt ? (
@@ -19,8 +19,6 @@ export default function Pagination({ current, pages, link }) {
       <style jsx>{`
         ul {
           list-style: none;
-          margin: 3rem 0 0 0;
-          padding: 0;
         }
         li {
           display: inline-block;

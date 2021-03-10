@@ -1,58 +1,49 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Container from "../../components/blog/container";
 import PostBody from "../../components/blog/post-body";
 import PostHeader from "../../components/blog/post-header";
-import Layout from "../../components/blog/layout";
+import Layout from "../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/blog/api";
 import PostTitle from "../../components/blog/post-title";
-import OtherPosts from "../../components/blog/other-posts";
-import Head from "next/head";
-import { CMS_NAME } from "../../lib/blog/constants";
 import markdownToHtml from "../../lib/blog/markdownToHtml";
+import OtherPosts from "../../components/blog/other-posts";
 
-export default function Post({ post, preview, previousPost, nextPost }) {
+export default function Post({ post,  previousPost, nextPost, data, seo, header }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
 
   return (
-    <Layout preview={preview}>
-      <Container>
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article className="mb-32">
-              <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
-            </article>
-            <OtherPosts previousPost={previousPost} nextPost={nextPost} />
-          </>
-        )}
-      </Container>
+    <Layout title={data.title} seo={seo} header={header}>
+      {router.isFallback ? (
+        <PostTitle>Loading…</PostTitle>
+      ) : (
+        <>
+          <article className="mb-32">
+            <PostHeader
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+            />
+            <PostBody content={post.content} />
+          </article>
+          <OtherPosts previousPost={previousPost} nextPost={nextPost} />
+        </>
+      )}
     </Layout>
   );
 }
 
 export async function getStaticProps({ params }) {
+  const pageContent = await import(`../../cms/pages/homepage.md`);
+  const seo = await import(`../../cms/config/seo.md`);
+  const header = await import(`../../cms/config/header.md`);
+
   const post = getPostBySlug(params.slug, [
     "title",
     "date",
     "slug",
-    "author",
     "content",
     "ogImage",
     "coverImage",
@@ -74,6 +65,9 @@ export async function getStaticProps({ params }) {
       },
       previousPost,
       nextPost,
+      data: pageContent.default.attributes,
+      seo: seo.default.attributes,
+      header: header.default.attributes,
     },
   };
 }

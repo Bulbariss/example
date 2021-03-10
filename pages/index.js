@@ -12,7 +12,7 @@ export default function Index({ data, seo, header }) {
     </Link>
   );
   return (
-    <Layout title={data.title} seo={seo} header={header}>
+    <Layout home title={data.title} seo={seo} header={header}>
       <BackgroundImage
         containerClassName="flex flex-col items-center justify-center min-h-screen px-4"
         image={data.heroImage}
