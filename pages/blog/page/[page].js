@@ -4,10 +4,17 @@ import Layout from "../../../components/layout";
 import { getAllPosts } from "../../../lib/blog/api";
 import { POSTS_PER_PAGE } from "../../../lib/blog/constants";
 
-export default function Index({ allPosts, pagination, show, data, seo, header }) {
+export default function Index({
+  allPosts,
+  pagination,
+  show,
+  seo,
+  header,
+  page,
+}) {
   return (
     <>
-      <Layout title={data.title} seo={seo} header={header}>
+      <Layout title={"Blog Page " + page} seo={seo} header={header}>
         <Intro />
         {allPosts.length > 0 && <Posts pagination={pagination} posts={show} />}
       </Layout>
@@ -16,7 +23,6 @@ export default function Index({ allPosts, pagination, show, data, seo, header })
 }
 
 export async function getStaticProps({ params }) {
-  const pageContent = await import(`../../../cms/pages/homepage.md`);
   const seo = await import(`../../../cms/config/seo.md`);
   const header = await import(`../../../cms/config/header.md`);
 
@@ -42,7 +48,7 @@ export async function getStaticProps({ params }) {
       pagination,
       allPosts,
       show,
-      data: pageContent.default.attributes,
+      page,
       seo: seo.default.attributes,
       header: header.default.attributes,
     },

@@ -8,21 +8,14 @@ import PostTitle from "../../components/blog/post-title";
 import markdownToHtml from "../../lib/blog/markdownToHtml";
 import OtherPosts from "../../components/blog/other-posts";
 
-export default function Post({
-  post,
-  previousPost,
-  nextPost,
-  data,
-  seo,
-  header,
-}) {
+export default function Post({ post, previousPost, nextPost, seo, header }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
 
   return (
-    <Layout title={data.title} seo={seo} header={header}>
+    <Layout title={post.title} seo={seo} header={header}>
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
       ) : (
@@ -43,7 +36,6 @@ export default function Post({
 }
 
 export async function getStaticProps({ params }) {
-  const pageContent = await import(`../../cms/pages/homepage.md`);
   const seo = await import(`../../cms/config/seo.md`);
   const header = await import(`../../cms/config/header.md`);
 
@@ -71,7 +63,6 @@ export async function getStaticProps({ params }) {
       },
       previousPost,
       nextPost,
-      data: pageContent.default.attributes,
       seo: seo.default.attributes,
       header: header.default.attributes,
     },

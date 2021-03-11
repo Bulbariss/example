@@ -28,7 +28,7 @@ export default function PostPreview({
       <div className="mb-4 text-sm font-bold text-gray-600">
         <DateFormatter dateString={date} />
       </div>
-      <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
+      <p className="mb-4 prose prose-lg max-w-none">{excerpt}</p>
     </div>
   );
 }
